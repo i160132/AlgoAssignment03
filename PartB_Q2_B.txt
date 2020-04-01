@@ -1,0 +1,27 @@
+//C++ code
+
+int* rabinKarp(string text, string pat, int mod){
+	int N = text.size();
+	int match[N];
+	string s;
+	int compare = 0;
+	int value = pat % mod;
+	for(int i = 0; i < N ; ++i){
+		str = text.substr(i, 2);
+		stringstream s(str);
+		s >> compare;
+		if(compare % mod == value){
+			if(compare == pat){
+				match[i] = 2;			//the number 2 represents match
+			}
+			else{
+				match[i] = 1;			//the number 1 represents spurious hit
+			}
+		}
+		else{
+			match[i] = 0;				//the number 0 represents no match
+		}
+	}
+	return match;
+}
+			

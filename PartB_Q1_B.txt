@@ -1,0 +1,21 @@
+//C++ code
+
+int* prefixFunction(int pat[]){
+	int M = sizeof(pat) / sizeof(pat[0]);
+	int s[M];
+	s[0] = 0;
+	int border = 0;
+	for(int i = 1 ; i <= M ; ++i){
+		while(border > 0 && pat[i] != pat[border]){
+			border = s[border - 1];
+		}
+		if(pat[i] == pat[border]){
+			border = border + 1;
+		}
+		else{
+			border = 0;
+		}
+		s[i] = border;
+	}
+	return s;
+}

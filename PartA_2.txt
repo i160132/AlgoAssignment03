@@ -1,0 +1,23 @@
+//C++ code
+
+void search(string pat, string txt){
+	int M = pat.size();
+    	int N = txt.size();
+    	int i = M;
+	while (i <= N){
+		int j;
+		for (j = 0; j < M; j++){
+			if (txt[i - j] != pat[M - j]){
+				break;
+			}
+		}
+
+		if (j == M){
+			cout << "Pattern found at index " << i - j << endl;
+			i = i + M;
+		}
+		else{
+			i = i + 1;
+		}
+	}
+}
